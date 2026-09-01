@@ -332,6 +332,44 @@
     border-top:1px solid rgba(233,237,234,0.1);
   }
 
+  /* ---------- Opportunities / Mission ---------- */
+  .mission{
+    border:1px solid var(--line);background:var(--panel);padding:34px;margin-bottom:48px;
+  }
+  .mission-label{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--gold);letter-spacing:.04em;text-transform:uppercase;}
+  .mission h3{font-size:25px;margin-top:10px;}
+  .mission p{color:var(--muted);margin-top:10px;max-width:68ch;font-size:15.5px;}
+  .mission strong{color:var(--ink);font-weight:500;}
+  .mission-note{display:inline-block;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--teal);border-bottom:1px solid var(--teal);padding-bottom:2px;}
+
+  .opportunities{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px;}
+  .opportunity{border:1px solid var(--line);background:var(--panel);padding:28px;transition:transform .2s ease,border-color .2s ease;}
+  .opportunity:hover{transform:translateY(-3px);border-color:var(--gold);}
+  .opportunity-icon{font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--gold);margin-bottom:14px;}
+  .opportunity h3{font-size:20px;}
+  .opportunity p{margin-top:9px;color:var(--muted);font-size:14.5px;}
+
+  /* ---------- Contact form ---------- */
+  .contact-form{border-left:1px solid rgba(233,237,234,.14);padding-left:40px;}
+  .form-title{font-family:'Fraunces',serif;font-size:25px;}
+  .form-intro{color:#A9B4AC;font-size:14px;margin-top:7px;margin-bottom:22px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .form-group{margin-bottom:15px;}
+  .form-group label{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#A9B4AC;margin-bottom:7px;}
+  .form-group input,.form-group select,.form-group textarea{
+    width:100%;border:1px solid rgba(233,237,234,.22);background:rgba(233,237,234,.04);
+    color:var(--paper);font:14px 'IBM Plex Sans',sans-serif;padding:11px 12px;border-radius:2px;outline:none;
+  }
+  .form-group select option{color:var(--ink);background:var(--paper);}
+  .form-group input::placeholder,.form-group textarea::placeholder{color:#7F8B84;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+  .form-group textarea{min-height:120px;resize:vertical;}
+  .form-submit button{border:1px solid var(--paper);background:var(--paper);color:var(--ink);font:500 14px 'IBM Plex Sans',sans-serif;padding:11px 20px;border-radius:2px;cursor:pointer;transition:all .2s ease;}
+  .form-submit button:hover{background:var(--gold);border-color:var(--gold);}
+  .form-submit button:disabled{opacity:.6;cursor:wait;}
+  .form-note{font-size:11.5px;color:#7F8B84;margin-top:10px;}
+  .form-success{display:none;margin-top:15px;padding:12px;border:1px solid rgba(47,107,94,.7);color:#B9D5CA;font-size:13px;}
+
   /* ---------- Responsive ---------- */
   @media (max-width:900px){
     .hero-grid{grid-template-columns:1fr;}
@@ -352,6 +390,9 @@
     .nav .btn-outline{display:none;}
     section{padding:64px 0;}
     .contact-grid{grid-template-columns:1fr;}
+    .contact-form{border-left:none;border-top:1px solid rgba(233,237,234,.14);padding-left:0;padding-top:32px;}
+    .opportunities{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
     .gallery{grid-template-columns:1fr;}
   }
 </style>
@@ -370,6 +411,7 @@
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
+      <a href="#opportunities">Opportunities</a>
       <a href="#contact">Contact</a>
     </nav>
     <div style="display:flex;gap:12px;align-items:center;">
@@ -657,6 +699,46 @@
     </div>
   </section>
 
+  <!-- OPPORTUNITIES -->
+  <section id="opportunities">
+    <div class="wrap-narrow">
+      <div class="section-head">
+        <h2>Open to meaningful work, not just job titles.</h2>
+        <p>I'm open to different ways of contributing — from freelance dashboard work to collaborations, volunteering, and practical projects with students or early-career teams.</p>
+      </div>
+
+      <div class="mission">
+        <div class="mission-label">A small mission I'm building</div>
+        <h3>Good analytics shouldn't be out of reach for smaller organizations.</h3>
+        <p>I'm currently looking to take on selected <strong>free or low-cost dashboard projects</strong> for small businesses, NGOs, community initiatives, and organizations where better reporting can create real value. Pricing can be flexible — <strong>based on the organization's situation and ability to pay</strong>.</p>
+        <span class="mission-note">Let's use data to make a practical impact.</span>
+      </div>
+
+      <div class="opportunities">
+        <div class="opportunity">
+          <div class="opportunity-icon">↗</div>
+          <h3>Freelance Projects</h3>
+          <p>Power BI dashboards, data cleaning, reporting, SQL analysis, KPI development, and business intelligence for real-world business needs.</p>
+        </div>
+        <div class="opportunity">
+          <div class="opportunity-icon">＋</div>
+          <h3>Project Collaboration</h3>
+          <p>Collaborate with analysts, developers, founders, researchers, or teams building practical data products and analytics projects.</p>
+        </div>
+        <div class="opportunity">
+          <div class="opportunity-icon">♡</div>
+          <h3>Volunteer / Pro Bono</h3>
+          <p>Open to meaningful analytics work for NGOs, social-impact organizations, community initiatives, and causes where data can help.</p>
+        </div>
+        <div class="opportunity">
+          <div class="opportunity-icon">⌘</div>
+          <h3>Student &amp; Early-Career Projects</h3>
+          <p>Happy to collaborate on portfolio projects, dashboards, data analysis initiatives, and practical learning projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="wrap-narrow">
@@ -670,29 +752,62 @@
             <span class="k">Email</span>
             <a href="mailto:darshanabalakannan@gmail.com">darshanabalakannan@gmail.com</a>
           </div>
-          <!-- <div class="contact-line">
-            <span class="k">Phone</span>
-            <a href="tel:+918925451445">+91 89254 51445</a>
-          </div> -->
           <div class="contact-line">
             <span class="k">Location</span>
             <span>Coimbatore, Tamil Nadu</span>
           </div>
-        </div>
-        <div>
           <div class="socials">
-            <!-- TODO: replace with your real LinkedIn URL -->
             <a href="https://www.linkedin.com/in/darshanabk/" target="_blank" rel="noopener">LinkedIn</a>
-            
-            <a href="https://www.linkedin.com/services/page/054179341b159a7562?lipi=urn%3Ali%3Apage%3Ad_flagship3_services_page%3BJckunoNTTfil4g4JHMf81w%3D%3D"
-            target="_blank"
-            rel="noopener">Services</a>
-
-            <!-- TODO: replace with your real GitHub URL -->
+            <a href="https://www.linkedin.com/services/page/054179341b159a7562?lipi=urn%3Ali%3Apage%3Ad_flagship3_services_page%3BJckunoNTTfil4g4JHMf81w%3D%3D" target="_blank" rel="noopener">Services</a>
             <a href="https://github.com/darshanabk" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
-      </div>
+
+        <div class="contact-form">
+          <div class="form-title">Start a conversation</div>
+          <p class="form-intro">Tell me what you're working on. No matter whether it's a paid project, collaboration, volunteer opportunity, or student project.</p>
+          <form id="contactForm" action="https://formspree.io/f/xyeywgwl" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">NAME *</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">EMAIL *</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="opportunity">I'M INTERESTED IN *</label>
+              <select id="opportunity" name="opportunity" required>
+                <option value="" selected disabled>Select an option</option>
+                <option>Freelance project</option>
+                <option>Business dashboard / analytics</option>
+                <option>NGO / social-impact project</option>
+                <option>Volunteer / pro bono collaboration</option>
+                <option>Student / early-career project</option>
+                <option>Project collaboration</option>
+                <option>Full-time opportunity</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">BUDGET</label>
+              <input type="text" id="budget" name="budget" placeholder="Optional — e.g. ₹5,000–₹10,000 or flexible">
+            </div>
+            <div class="form-group">
+              <label for="message">TELL ME ABOUT THE PROJECT *</label>
+              <textarea id="message" name="message" placeholder="What are you working on? What kind of help do you need?" required></textarea>
+            </div>
+            <input type="hidden" name="_subject" value="New portfolio enquiry — Darshana Balakannan">
+            <div class="form-submit">
+              <button type="submit" id="submitButton">Send enquiry →</button>
+            </div>
+            <p class="form-note">Your details are only used to respond to your enquiry.</p>
+            <div class="form-success" id="formSuccess">Thanks for reaching out. Your message has been sent successfully. I'll get back to you soon.</div>
+          </form>
+        </div>
+      </div>      </div>
     </div>
   </section>
 
@@ -712,6 +827,38 @@
     const isOpen = links.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen);
   });
+
+  /* ---------- Contact form ---------- */
+  const contactForm = document.getElementById('contactForm');
+  const submitButton = document.getElementById('submitButton');
+  const formSuccess = document.getElementById('formSuccess');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(event){
+      event.preventDefault();
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          contactForm.reset();
+          formSuccess.style.display = 'block';
+          submitButton.textContent = 'Message sent ✓';
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (error) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send enquiry →';
+        alert('Sorry, something went wrong. Please email me directly at darshanabalakannan@gmail.com');
+      }
+    });
+  }
+
   links.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       links.classList.remove('open');
