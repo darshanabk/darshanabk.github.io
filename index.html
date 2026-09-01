@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Darshana Balakannan | Data Analyst</title>
+<meta name="description" content="Darshana Balakannan — Data Analyst specializing in business intelligence, ETL/data-quality testing, and Power BI reporting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E9EDEA;
+    --panel:#F7F8F5;
+    --ink:#16232E;
+    --muted:#5B6B63;
+    --line:#C8D0C6;
+    --gold:#B8862E;
+    --teal:#2F6B5E;
+    --max:920px;
+    --maxwide:1080px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+
+  img{max-width:100%;display:block;}
+
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .wrap{max-width:var(--maxwide);margin:0 auto;padding:0 32px;}
+  .wrap-narrow{max-width:var(--max);margin:0 auto;padding:0 32px;}
+
+  h1,h2,h3{font-family:'Fraunces', serif;font-weight:500;line-height:1.15;letter-spacing:-0.01em;}
+
+  /* ---------- Skip link ---------- */
+  .skip-link{
+    position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);
+    padding:10px 16px;z-index:999;
+  }
+  .skip-link:focus{left:16px;top:16px;}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(233,237,234,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    height:72px;
+  }
+  .mark{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Fraunces', serif;font-size:18px;font-weight:500;
+    text-decoration:none;
+  }
+  .mark-box{
+    width:34px;height:34px;border:1px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono', monospace;font-size:13px;font-weight:500;
+    flex-shrink:0;
+  }
+  .mark-name{white-space:nowrap;}
+  .mark-name .role{
+    display:block;font-family:'IBM Plex Mono', monospace;font-size:11px;
+    color:var(--muted);font-weight:400;letter-spacing:0.02em;
+  }
+
+  nav.links{display:flex;gap:36px;align-items:center;}
+  nav.links a{
+    text-decoration:none;font-size:14.5px;color:var(--ink);
+    position:relative;padding:4px 0;
+  }
+  nav.links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+    background:var(--gold);transition:width 0.25s ease;
+  }
+  nav.links a:hover::after{width:100%;}
+
+  .btn{
+    display:inline-block;
+    font-family:'IBM Plex Sans', sans-serif;font-size:14.5px;font-weight:500;
+    text-decoration:none;padding:11px 22px;border-radius:3px;
+    border:1px solid var(--ink);
+    transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-solid{background:var(--ink);color:var(--paper);}
+  .btn-solid:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+  .btn-outline{background:transparent;color:var(--ink);}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+
+  .nav-toggle{display:none;background:none;border:1px solid var(--ink);width:40px;height:40px;cursor:pointer;}
+  .nav-toggle span{display:block;width:18px;height:1.5px;background:var(--ink);margin:4px auto;}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:88px 0 72px;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.35fr 0.65fr;gap:56px;align-items:start;
+  }
+  .eyebrow-meta{
+    display:flex;flex-wrap:wrap;gap:0;align-items:center;
+    font-family:'IBM Plex Mono', monospace;font-size:13px;color:var(--muted);
+    margin-bottom:22px;
+  }
+  .eyebrow-meta span{padding-right:16px;margin-right:16px;border-right:1px solid var(--line);}
+  .eyebrow-meta span:last-child{border-right:none;margin-right:0;padding-right:0;}
+
+  .hero h1{
+    font-size:clamp(34px, 4.6vw, 56px);
+    max-width:15ch;
+    opacity:0;transform:translateY(14px);
+    animation:riseIn 0.7s ease forwards;
+    animation-delay:0.05s;
+  }
+  .hero p.lede{
+    margin-top:22px;font-size:18px;color:var(--muted);max-width:52ch;
+    opacity:0;transform:translateY(14px);
+    animation:riseIn 0.7s ease forwards;
+    animation-delay:0.2s;
+  }
+  .hero-ctas{
+    display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;
+    opacity:0;transform:translateY(14px);
+    animation:riseIn 0.7s ease forwards;
+    animation-delay:0.35s;
+  }
+  @keyframes riseIn{to{opacity:1;transform:translateY(0);}}
+
+  .hero-side{
+    border:1px solid var(--line);background:var(--panel);
+    padding:26px;
+    opacity:0;transform:translateY(14px);
+    animation:riseIn 0.7s ease forwards;
+    animation-delay:0.45s;
+  }
+  .hero-side .label{
+    font-family:'IBM Plex Mono', monospace;font-size:12px;color:var(--muted);
+    margin-bottom:14px;
+  }
+  .sparkline{width:100%;height:74px;margin-bottom:18px;}
+  .hero-side ul{list-style:none;}
+  .hero-side li{
+    display:flex;justify-content:space-between;
+    font-size:14px;padding:9px 0;border-top:1px solid var(--line);
+  }
+  .hero-side li:first-of-type{border-top:none;}
+  .hero-side li strong{font-weight:500;}
+  .hero-side li span.v{font-family:'IBM Plex Mono', monospace;color:var(--teal);}
+
+  /* ---------- Stats strip ---------- */
+  .stats{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:36px 0;
+  }
+  .stats-grid{
+    display:grid;grid-template-columns:repeat(4, 1fr);
+  }
+  .stat{padding:0 24px;border-left:1px solid var(--line);}
+  .stat:first-child{border-left:none;padding-left:0;}
+  .stat .num{
+    font-family:'IBM Plex Mono', monospace;font-size:clamp(24px,3vw,32px);
+    color:var(--gold);font-weight:500;
+  }
+  .stat .lbl{font-size:13.5px;color:var(--muted);margin-top:6px;}
+
+  /* ---------- Section heading ---------- */
+  section{padding:88px 0;}
+  section.tight{padding-top:0;}
+  .section-head{max-width:56ch;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(26px,3vw,34px);}
+  .section-head p{margin-top:14px;color:var(--muted);font-size:16px;}
+
+  /* ---------- Projects ---------- */
+  .project{
+    border:1px solid var(--line);background:var(--panel);
+    padding:36px;margin-bottom:28px;
+  }
+  .project:last-child{margin-bottom:0;}
+  .project-top{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:24px;flex-wrap:wrap;margin-bottom:18px;
+  }
+  .tags{display:flex;gap:8px;flex-wrap:wrap;}
+  .tag{
+    font-family:'IBM Plex Mono', monospace;font-size:11.5px;
+    border:1px solid var(--line);padding:5px 10px;color:var(--muted);
+  }
+  .project h3{font-size:24px;margin-top:14px;}
+  .project .desc{margin-top:12px;color:var(--muted);max-width:62ch;font-size:15.5px;}
+  .project-stats{
+    display:flex;gap:32px;margin:24px 0;flex-wrap:wrap;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:18px 0;
+  }
+  .project-stats div .num{font-family:'IBM Plex Mono', monospace;color:var(--teal);font-size:20px;font-weight:500;}
+  .project-stats div .lbl{font-size:13px;color:var(--muted);margin-top:3px;}
+  .highlights{margin:20px 0 0;padding-left:0;list-style:none;}
+  .highlights li{
+    position:relative;padding-left:18px;margin-bottom:9px;font-size:15px;color:var(--ink);
+  }
+  .highlights li::before{
+    content:"";position:absolute;left:0;top:9px;width:6px;height:1px;background:var(--gold);
+  }
+  .tools{margin-top:22px;font-size:13.5px;color:var(--muted);}
+  .tools strong{color:var(--ink);font-weight:500;}
+
+  /* ---------- Screenshot gallery ---------- */
+  .gallery{
+    display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;
+  }
+  .gallery.single{grid-template-columns:1fr;}
+  .shot{border:1px solid var(--line);background:#0000;}
+  .shot img{width:100%;display:block;border-bottom:1px solid var(--line);}
+  .shot figcaption{
+    font-family:'IBM Plex Mono', monospace;font-size:11.5px;color:var(--muted);
+    padding:10px 12px;line-height:1.5;
+  }
+  .live-link{
+    display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+    font-size:14px;text-decoration:none;color:var(--teal);
+    border-bottom:1px solid var(--teal);padding-bottom:2px;
+  }
+  .live-link:hover{color:var(--gold);border-color:var(--gold);}
+
+  /* ---------- Testimonial ---------- */
+  .quote-block{
+    margin-top:28px;border-left:2px solid var(--gold);padding:4px 0 4px 22px;
+  }
+  .quote-block p{
+    font-family:'Fraunces', serif;font-style:italic;font-size:17px;
+    line-height:1.55;color:var(--ink);max-width:60ch;
+  }
+  .quote-attr{
+    margin-top:12px;font-size:13.5px;color:var(--muted);
+    display:flex;align-items:center;gap:10px;
+  }
+  .quote-attr .stars{color:var(--gold);letter-spacing:1px;font-size:12px;}
+
+  /* ---------- Capabilities ---------- */
+  .cap-row{
+    display:grid;grid-template-columns:220px 1fr;gap:24px;
+    padding:22px 0;border-top:1px solid var(--line);
+  }
+  .cap-row:last-child{border-bottom:1px solid var(--line);}
+  .cap-row h3{
+    font-family:'IBM Plex Mono', monospace;font-size:14px;font-weight:500;
+    color:var(--ink);
+  }
+  .cap-row p{color:var(--muted);font-size:15px;}
+
+  /* ---------- Timeline ---------- */
+  .timeline{position:relative;padding-left:28px;}
+  .timeline::before{
+    content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line);
+  }
+  .tl-item{position:relative;padding-bottom:44px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-28px;top:5px;width:11px;height:11px;
+    background:var(--paper);border:1.5px solid var(--gold);
+  }
+  .tl-date{font-family:'IBM Plex Mono', monospace;font-size:12.5px;color:var(--muted);margin-bottom:6px;}
+  .tl-item h3{font-size:19px;}
+  .tl-item .org{font-size:14.5px;color:var(--teal);margin-top:2px;margin-bottom:10px;}
+  .tl-item p.desc{color:var(--muted);font-size:15px;max-width:60ch;}
+
+  /* ---------- Two-col: certs + education ---------- */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  .list-block h3{font-size:15px;font-family:'IBM Plex Mono', monospace;font-weight:500;margin-bottom:18px;}
+  .entry{padding:16px 0;border-top:1px solid var(--line);}
+  .entry:first-of-type{border-top:none;padding-top:0;}
+  .entry .t{font-weight:500;font-size:15.5px;}
+  .entry .s{color:var(--muted);font-size:14px;margin-top:3px;}
+  .entry .d{font-family:'IBM Plex Mono', monospace;color:var(--muted);font-size:12.5px;margin-top:5px;}
+
+  /* ---------- Contact ---------- */
+  .contact{
+    background:var(--ink);color:var(--paper);
+  }
+  .contact .section-head h2{color:var(--paper);}
+  .contact .section-head p{color:#A9B4AC;}
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;
+    padding-top:12px;border-top:1px solid rgba(233,237,234,0.18);
+  }
+  .contact-line{padding:16px 0;border-bottom:1px solid rgba(233,237,234,0.14);
+    display:flex;justify-content:space-between;font-size:15px;}
+  .contact-line .k{color:#A9B4AC;}
+  .contact-line a{text-decoration:none;}
+  .contact-line a:hover{color:var(--gold);}
+  .socials{display:flex;gap:20px;margin-top:20px;flex-wrap:wrap;}
+  .socials a{text-decoration:none;font-size:14.5px;border-bottom:1px solid rgba(233,237,234,0.3);padding-bottom:2px;}
+  .socials a:hover{border-color:var(--gold);color:var(--gold);}
+
+  footer{
+    background:var(--ink);color:#8E9990;
+    font-size:13px;padding:24px 0 40px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    border-top:1px solid rgba(233,237,234,0.1);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);row-gap:24px;}
+    .stat:nth-child(3){border-left:none;padding-left:0;}
+    .two-col{grid-template-columns:1fr;gap:40px;}
+    .cap-row{grid-template-columns:1fr;gap:8px;}
+  }
+
+  @media (max-width:720px){
+    nav.links{
+      position:fixed;inset:72px 0 0 0;background:var(--paper);
+      flex-direction:column;align-items:flex-start;padding:32px;gap:24px;
+      transform:translateX(100%);transition:transform 0.25s ease;
+    }
+    nav.links.open{transform:translateX(0);}
+    .nav-toggle{display:block;}
+    .nav .btn-outline{display:none;}
+    section{padding:64px 0;}
+    .contact-grid{grid-template-columns:1fr;}
+    .gallery{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap nav">
+    <a class="mark" href="#top">
+      <span class="mark-box">DB</span>
+      <span class="mark-name">Darshana Balakannan<span class="role">Data & BI</span></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex;gap:12px;align-items:center;">
+      <a class="btn btn-outline" href="#contact">Get in touch</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <div id="top"></div>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow-meta">
+            <span>Coimbatore, Tamil Nadu</span>
+            <span>Open to data analyst roles</span>
+            <span>Remote-friendly</span>
+          </div>
+          <h1>I make messy data tell the truth.</h1>
+          <p class="lede">Data analyst with 2+ years across ETL testing, business intelligence, and analytics — turning inconsistent, real-world datasets into dashboards and decisions people can actually trust.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-solid" href="#work">View my work</a>
+            <a class="btn btn-outline" href="./assets/Darshana-Balakannan-Resume.pdf" download>Download résumé</a>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="label">Current focus</div>
+          <svg class="sparkline" viewBox="0 0 280 74" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="0" y1="18" x2="280" y2="18" stroke="#C8D0C6" stroke-width="1"/>
+            <line x1="0" y1="37" x2="280" y2="37" stroke="#C8D0C6" stroke-width="1"/>
+            <line x1="0" y1="56" x2="280" y2="56" stroke="#C8D0C6" stroke-width="1"/>
+            <polyline points="0,52 35,44 70,48 105,30 140,34 175,20 210,24 245,10 280,14" stroke="#B8862E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="280" cy="14" r="3.5" fill="#2F6B5E"/>
+          </svg>
+          <ul>
+            <li><strong>Beneficiaries tracked</strong><span class="v">3,000<span></li>
+            <li><strong>DAX measures shipped</strong><span class="v">60+</span></li>
+            <li><strong>QA findings documented</strong><span class="v">250+</span></li>
+            <li><strong>Years in data & QA</strong><span class="v">2+</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="wrap stats-grid">
+      <div class="stat">
+        <div class="num">2+</div>
+        <div class="lbl">Years in data analysis &amp; QA</div>
+      </div>
+      <div class="stat">
+        <div class="num">3,000</div>
+        <div class="lbl">Beneficiaries tracked in a relief analytics platform</div>
+      </div>
+      <div class="stat">
+        <div class="num">60+</div>
+        <div class="lbl">DAX measures shipped in production dashboards</div>
+      </div>
+      <div class="stat">
+        <div class="num">250+</div>
+        <div class="lbl">Data-quality findings documented at Deloitte</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap-narrow">
+      <div class="section-head">
+        <h2>Case studies, not screenshots.</h2>
+        <p>Two projects that show the same thing from different angles: taking data nobody fully trusted yet, and building the process — not just the chart — that makes it trustworthy.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-top">
+          <div>
+            <div class="tags">
+              <span class="tag">Pro bono</span>
+              <span class="tag">Humanitarian analytics</span>
+              <span class="tag">2026</span>
+            </div>
+            <h3>Disaster relief analytics platform</h3>
+          </div>
+        </div>
+        <p class="desc">An end-to-end Power BI platform built for Samarthya NGO to track relief distribution and vulnerability across 3,000 beneficiaries — from inconsistent field records to a star-schema model that leadership and donors could rely on.</p>
+
+        <div class="project-stats">
+          <div><div class="num">3,000</div><div class="lbl">Beneficiaries covered</div></div>
+          <div><div class="num">60+</div><div class="lbl">DAX measures built</div></div>
+          <div><div class="num">Star schema</div><div class="lbl">Fact/dimension model</div></div>
+        </div>
+
+        <ul class="highlights">
+          <li>Reviewed and reconciled raw beneficiary records for duplicates, formatting issues, and structural inconsistencies before any reporting began.</li>
+          <li>Unpivoted wide-format vulnerability data in Power Query into a structure that supports real per-condition analysis.</li>
+          <li>Validated geospatial coordinates against beneficiary, habitation, and government master records for accurate mapping.</li>
+          <li>Migrated the reporting layer from Looker to Power BI to support interactive geospatial drill-through and custom tooltips.</li>
+          <li>Built a Python pipeline against the KoboToolbox API and Google Drive to organize field-evidence photos for verification.</li>
+          <li>Implemented object-level security in Tabular Editor so volunteers, admins, and donors each see only what they should.</li>
+        </ul>
+
+        <p class="tools"><strong>Tools:</strong> Power BI · DAX · Power Query · Python · KoboToolbox API · Tabular Editor</p>
+
+        <div class="gallery">
+          <figure class="shot">
+            <img src="./assets/samarthya_home.jpg" alt="Samarthya Flood Relief 2026 dashboard home page showing program context, response, and impact summary" loading="lazy">
+            <figcaption>Program overview — context, response, and a donor-facing impact summary</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="./assets/samarthya_distribution.jpg" alt="Relief distribution analysis page with geospatial map and vulnerability breakdown by village" loading="lazy">
+            <figcaption>Distribution analysis — geospatial map with vulnerability breakdown by village</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="./assets/samarthya_omarga.jpg" alt="Omarga Taluka drill-through page with demographic risk table and field deployment tracking" loading="lazy">
+            <figcaption>Taluka drill-through — demographic risk table, field deployment, audit log</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="./assets/samarthya_lohara.jpg" alt="Lohara Taluka drill-through page with vulnerability severity distribution and relief kit allocation" loading="lazy">
+            <figcaption>Second taluka view — severity distribution and relief-kit allocation by habitation</figcaption>
+          </figure>
+        </div>
+
+        <div class="quote-block">
+          <p>"Working with Darshana on our Flood Relief 2026 project was exceptional. She built an advanced Power BI dashboard with GPS, photo, and signature validations to ensure transparency. Patient, friendly, and highly skilled — she delivered a clean, user-friendly tool while upholding beneficiary dignity."</p>
+          <div class="quote-attr">
+            <span class="stars">★★★★★</span>
+            <span>Ranjita Pawar, Founder &amp; Director, Samarthya</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-top">
+          <div>
+            <div class="tags">
+              <span class="tag">Personal project</span>
+              <span class="tag">Live app</span>
+            </div>
+            <h3>YouTube trend analysis: a data-driven deep dive into DevOps content</h3>
+          </div>
+        </div>
+        <p class="desc">An automated pipeline that pulls video metadata from the YouTube Data API for DevOps-focused channels, then surfaces engagement and growth trends through a filterable Streamlit dashboard — sliceable by continent, country, channel, category, and year.</p>
+
+        <ul class="highlights">
+          <li>Built an automated collection pipeline against the YouTube Data API to gather channel and video metadata at scale.</li>
+          <li>Cleaned and standardized views, likes, comments, and subscriber counts for reliable comparison across channels.</li>
+          <li>Designed engagement-score and growth-score gauges that benchmark each filtered slice against the overall average.</li>
+          <li>Built continent- and country-level breakdowns plus top-10 rankings for the most engaging channels and videos.</li>
+        </ul>
+
+        <p class="tools"><strong>Tools:</strong> Python · Streamlit · Pandas · Plotly · YouTube Data API</p>
+        <a class="live-link" href="https://devops-youtube-trends.streamlit.app" target="_blank" rel="noopener">View the live dashboard</a>
+
+        <div class="gallery">
+          <figure class="shot">
+            <img src="./assets/yt_overview.jpg" alt="YouTube trend analysis dashboard filtered to North America, Germany, and the AWS Developers channel, showing average likes, views, subscribers, engagement and growth gauges" loading="lazy">
+            <figcaption>Filtered to North America / Germany / AWS Developers — engagement &amp; growth gauges vs. overall average</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="./assets/yt_engagement.jpg" alt="Engagement breakdown by continent and country with top 10 channels and videos ranked by engagement" loading="lazy">
+            <figcaption>Engagement by continent and country, with top channels and videos ranked</figcaption>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap-narrow">
+      <div class="section-head">
+        <h2>A toolkit built for accuracy first.</h2>
+        <p>Everything here supports one goal: making sure the number on the dashboard is the same number that's actually true in the source data.</p>
+      </div>
+
+      <div class="cap-row">
+        <h3>Data analysis & querying</h3>
+        <p>SQL, complex joins, CTEs, window functions, aggregations, data validation, data quality, ETL/ELT testing, Excel, XLOOKUP, VLOOKUP</p>
+      </div>
+      <div class="cap-row">
+        <h3>Business intelligence</h3>
+        <p>Power BI, DAX, Power Query, M, star schema, data modeling, drill-through, dynamic tooltips, geospatial visualization, Tableau, Looker, Streamlit, Plotly</p>
+      </div>
+      <div class="cap-row">
+        <h3>Programming & automation</h3>
+        <p>Python, Pandas, NumPy, Google Apps Script, JavaScript, REST APIs, API integration</p>
+      </div>
+      <div class="cap-row">
+        <h3>Data sources & platforms</h3>
+        <p>MS SQL Server, PostgreSQL, KoboToolbox API, Google Drive, Google Sheets, YouTube Data API</p>
+      </div>
+      <div class="cap-row">
+        <h3>Tools & engineering</h3>
+        <p>Git, GitHub, Jira, Unix/Bash, Tabular Editor</p>
+      </div>
+      <div class="cap-row">
+        <h3>Cloud & governance</h3>
+        <p>AWS, object-level security, data privacy, data quality governance</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap-narrow">
+      <div class="section-head">
+        <h2>Where the work happened.</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">Apr 2026 — Present</div>
+          <h3>Data Analyst, Pro Bono — Disaster Relief Analytics</h3>
+          <div class="org">Samarthya NGO · Remote</div>
+          <p class="desc">Designed and maintain an end-to-end Power BI analytics platform tracking relief distribution and vulnerability across 3,000 beneficiaries, with governance controls built for donor accountability.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Aug 2022 — May 2024</div>
+          <h3>Associate Analyst — Quality Assurance</h3>
+          <div class="org">Deloitte USI · Bengaluru, India</div>
+          <p class="desc">Validated data accuracy and pipeline integrity for a large-scale US healthcare ELT system, writing source-to-target reconciliation SQL and documenting 250+ execution observations.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jun 2024 — Nov 2024</div>
+          <h3>Data Analyst Trainee</h3>
+          <div class="org">Trainity · Remote</div>
+          <p class="desc">Completed 8 end-to-end case studies spanning profitability, risk, hiring, and operations analytics using SQL, Python, Tableau, and Power BI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTS + EDUCATION -->
+  <section>
+    <div class="wrap-narrow">
+      <div class="two-col">
+        <div class="list-block">
+          <h3>Certifications</h3>
+          <div class="entry">
+            <div class="t">AWS Certified Cloud Practitioner</div>
+            <div class="s">Amazon Web Services</div>
+            <div class="d">Jan 2024</div>
+          </div>
+          <div class="entry">
+            <div class="t">Microsoft Power BI for Business Intelligence</div>
+            <div class="s">Maven Analytics</div>
+            <div class="d">Apr 2025</div>
+          </div>
+          <div class="entry">
+            <div class="t">Data Analytics Job Simulation</div>
+            <div class="s">Accenture / Forage</div>
+            <div class="d">Dec 2024</div>
+          </div>
+        </div>
+        <div class="list-block">
+          <h3>Education</h3>
+          <div class="entry">
+            <div class="t">Master of Computer Applications (MCA)</div>
+            <div class="s">Vellore Institute of Technology · Online</div>
+            <div class="d">Expected Dec 2026</div>
+          </div>
+          <div class="entry">
+            <div class="t">BSc Computer Technology</div>
+            <div class="s">Sri Krishna Arts and Science College · CGPA 8.8/10</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap-narrow">
+      <div class="section-head">
+        <h2>Bring me a dataset nobody trusts yet.</h2>
+        <p>I'm open to data analyst and BI roles — remote or Coimbatore-based. Reach out directly, or connect on LinkedIn or GitHub.</p>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-line">
+            <span class="k">Email</span>
+            <a href="mailto:darshanabalakannan@gmail.com">darshanabalakannan@gmail.com</a>
+          </div>
+          <!-- <div class="contact-line">
+            <span class="k">Phone</span>
+            <a href="tel:+918925451445">+91 89254 51445</a>
+          </div> -->
+          <div class="contact-line">
+            <span class="k">Location</span>
+            <span>Coimbatore, Tamil Nadu</span>
+          </div>
+        </div>
+        <div>
+          <div class="socials">
+            <!-- TODO: replace with your real LinkedIn URL -->
+            <a href="https://www.linkedin.com/in/darshanabk/" target="_blank" rel="noopener">LinkedIn</a>
+            <!-- TODO: replace with your real GitHub URL -->
+            <a href="https://github.com/darshanabk" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:10px;">
+    <span>Coimbatore, Tamil Nadu · Built with clarity and intent.</span>
+    <span>&copy; 2026 Darshana Balakannan.</span>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
